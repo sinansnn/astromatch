@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body, #root {
+    height: 100%;
+    background-color: #0A0A1A;
+    color: #E8E8F8;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(232,197,255,0.2); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(232,197,255,0.4); }
+}
+
+@layer components {
+  /* Glass card */
+  .glass {
+    background: rgba(26, 26, 53, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-bright {
+    background: rgba(40, 40, 80, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(232, 197, 255, 0.12);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply relative px-6 py-3 rounded-2xl font-body font-medium text-cosmos-bg
+           bg-stellar-lavender transition-all duration-200
+           hover:shadow-glow-md active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 rounded-2xl font-body font-medium text-stellar-lavender
+           border border-stellar-lavender/20 transition-all duration-200
+           hover:bg-stellar-lavender/10 active:scale-95;
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-cosmos-surface border border-cosmos-border
+           text-white placeholder-cosmos-muted font-body
+           focus:outline-none focus:border-stellar-lavender/50 focus:ring-1 focus:ring-stellar-lavender/20
+           transition-all duration-200;
+  }
+
+  /* Star field */
+  .star-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* Page container */
+  .page {
+    @apply relative z-10 flex flex-col h-full overflow-hidden;
+  }
+}
+
+/* Star particles */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--duration, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
