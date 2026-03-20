@@ -66,7 +66,7 @@ function ProfileCard({
       style={{ x, rotate }}
       onDragEnd={handleDragEnd}
       className="absolute inset-0 rounded-3xl overflow-hidden cursor-grab active:cursor-grabbing select-none"
-      style2={{ x, rotate, boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
+      style={{ x, rotate, boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
     >
       {/* Photo / Avatar area */}
       <div className="h-[55%] relative flex items-center justify-center"
